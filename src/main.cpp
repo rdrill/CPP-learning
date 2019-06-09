@@ -3,7 +3,7 @@ using namespace std;
 #include <algorithm> 
 #include <vector> 
 
-char condfile[] = "20212041414";
+char condfile[] = "10111011110";
 
 int main(void) {
 	vector<bool> actual;
@@ -45,20 +45,30 @@ int main(void) {
 	// 	rules[1].push_back(i+2);
 	// 	rules[2].push_back(i*2-2);
 	// }
-	
+
+
+	vector<bool> balance;
 	for (int i = 0; i < rules.size(); i++) { 
         for (int j = 0; j < rules[i].size(); j++){ 
             cout << i <<" RLS | " << rules[i][j] << " " << endl; 
 		}
+		if (all_of(begin(rules[i]),end(rules[i]),[](bool a){ return a;})){
+			cout << "Condition part ["<< i <<"] is  TRUE\n";
+			balance.push_back(true);
+		}else{
+			cout << "Condition part ["<< i <<"] has a FALSE\n";
+			balance.push_back(false);
+		}
     } 
+	cout << "\r\n\r\n************************************************" << endl;
+	cout << "################################################" << endl;
+	if (all_of(begin(balance),end(balance),[](bool a){ return a;})){
+			cout << "TOTAL BALANCE  is TRUE" << endl;
+		}else{
+			cout << "TOTAL BALANCE  is FALSE" << endl;
+		}
+	cout << "################################################" << endl;
+	cout << "************************************************\r\n\r\n" << endl;
 	cout << "STOP" << endl; 
-	// if (all_of(begin(something), 
-    // end(something), 
-    //        [](bool i)
-    //         { 
-    //           return i; // or return !i ;
-    //         })) {
-    //     cout << "All numbers are true\n";
-    // }
-	//cout << "Hello Easy C++ project!" << std::endl;
+
 }
